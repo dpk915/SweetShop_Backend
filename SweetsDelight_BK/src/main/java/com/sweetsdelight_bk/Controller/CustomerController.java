@@ -54,7 +54,7 @@ public class CustomerController {
     @PostMapping("/register")   //user
     public ResponseEntity<Customer> registerCustomer(@Valid @RequestBody Customer customer) throws CustomerException {
     	
-    	customer.setPassword(pc.encode(customer.getPassword()));
+    	customer.setPassword(customer.getPassword());
     	customer.setRole("user");
         return new ResponseEntity<>(customerService.addCustomer(customer), HttpStatus.CREATED);
     }
